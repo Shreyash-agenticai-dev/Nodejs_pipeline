@@ -6,6 +6,11 @@
 trigger:
 - main
 
+pool:
+  name: Default
+  demands:
+   - agent.name -equals devopsagent
+
 variables:
 
   # Azure Resource Manager connection created during pipeline creation
@@ -18,7 +23,8 @@ variables:
   environmentName: 'pipelinenodejs'
 
   # Agent VM image name
-  vmImageName: 'ubuntu-latest'
+  # vmImageName: 'ubuntu-latest' commenting out these as i am using selfhosted agent
+  
 
 stages:
 - stage: Build
